@@ -95,7 +95,7 @@ for i in range(24):
     for j in range(24):        
         A[i+36,j+36]=1
 B=(-1e13)*(1-A)  
-B=(torch.tensor(B)).type(torch.float32).cuda()
+B=(torch.tensor(B)).type(torch.float32)
 
 
 class TATT_1(nn.Module):

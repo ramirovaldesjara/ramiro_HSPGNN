@@ -122,6 +122,8 @@ wdecay=0.000
 
 device = torch.device(FLAGS.device)
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 
 
