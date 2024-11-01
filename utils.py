@@ -44,7 +44,7 @@ class T_cheby_conv_ds(nn.Module):
         # calculat one-order laplacian matrix
         Ls = []
         L1 = adj
-        L0 = torch.eye(nNode).repeat(nSample,1,1).cuda()
+        L0 = torch.eye(nNode).repeat(nSample,1,1)
         Ls.append(L0)
         Ls.append(L1)
 
@@ -67,8 +67,8 @@ class T_cheby_conv_ds(nn.Module):
         for jj in range(Lap.shape[0]):
             total_time_toeplitz_matrix[jj, :, :, :] = time_toeplitz_matrix
             III[jj, :, :, :] = II
-        Toeplitz = torch.tensor(total_time_toeplitz_matrix, dtype=torch.float32).cuda()
-        IIII = torch.tensor(III, dtype=torch.float32).cuda()
+        Toeplitz = torch.tensor(total_time_toeplitz_matrix, dtype=torch.float32)
+        IIII = torch.tensor(III, dtype=torch.float32)
 
 
         # calculat zero-order laplacian convolution
@@ -211,8 +211,8 @@ class PHYSICS_DECODER(nn.Module):
         shape = x.shape
         ff = x
 
-        h = Variable(torch.zeros((1, shape[0] * shape[2], shape[3]))).cuda()
-        c = Variable(torch.zeros((1, shape[0] * shape[2], shape[3]))).cuda()
+        h = Variable(torch.zeros((1, shape[0] * shape[2], shape[3])))
+        c = Variable(torch.zeros((1, shape[0] * shape[2], shape[3])))
         hidden = (h, c)
 
         kk = x_1.permute(0, 2, 1, 3).contiguous().view(shape[0] * shape[2], shape[1], shape[3])

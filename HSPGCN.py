@@ -140,13 +140,13 @@ else:
     params_path = 'params/%s_%s/' % (model_name, timestamp)
 
 # check parameters file
-if os.path.exists(params_path) and not FLAGS.force:
-    raise SystemExit("Params folder exists! Select a new params path please!")
-else:
-    if os.path.exists(params_path):
-        shutil.rmtree(params_path)
-    os.makedirs(params_path)
-    print('Create params directory %s' % (params_path))
+# if os.path.exists(params_path) and not FLAGS.force:
+#     raise SystemExit("Params folder exists! Select a new params path please!")
+# else:
+#     if os.path.exists(params_path):
+#         shutil.rmtree(params_path)
+#     os.makedirs(params_path)
+#     print('Create params directory %s' % (params_path))
 
 
 if __name__ == "__main__":
